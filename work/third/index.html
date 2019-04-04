@@ -11,12 +11,12 @@
   </head>
   <body>
     <div class="wrapper">
-      <ul class="nav clearfix">
+      <ul class="nav clearfix" id="nav">
         <li>HOME</li>
         <li>NEWS</li>
         <li>MYPAGE</li>
       </ul>
-      <ul class="contents">
+      <ul class="contents" id="contents">
         <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
         <li class="is-hidden">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
         <li class="is-hidden">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
@@ -24,6 +24,14 @@
     </div>
     <script src="../../common/js/jquery.js"></script>
     <script>
+      $(function() {
+        $('#nav').find('li').click(function() {
+          var num = $(this).index();
+          $('#contents li').removeClass('is-hidden');
+          $('#contents li').addClass('is-hidden');
+        $('#contents').find('li').removeClass('active').eq(num).addClass('active');
+        });
+      });
       // 今回やるのはタブメニューです。
       // navの小要素であるliをクリックして、contents内の小要素であるli要素を表示させる。
       // .index() 要素のindexを取得します。
